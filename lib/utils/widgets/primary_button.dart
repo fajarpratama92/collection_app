@@ -16,18 +16,18 @@ class PrimaryButton extends StatelessWidget {
 
   const PrimaryButton(
       {Key? key,
-        this.text,
-        this.onPressed,
-        this.sizeWidth,
-        this.sizeHeight,
-        this.borderRadiusSize,
-        this.borderSideColor,
-        this.colorButton,
-        this.textColor,
-        this.fontSize,
-        this.elevation,
-        this.letterSpacing,
-        this.isDisable})
+      this.text,
+      this.onPressed,
+      this.sizeWidth,
+      this.sizeHeight,
+      this.borderRadiusSize,
+      this.borderSideColor,
+      this.colorButton,
+      this.textColor,
+      this.fontSize,
+      this.elevation,
+      this.letterSpacing,
+      this.isDisable})
       : super(key: key);
 
   @override
@@ -38,14 +38,19 @@ class PrimaryButton extends StatelessWidget {
         fixedSize: MaterialStateProperty.all(
           Size(sizeWidth ?? double.infinity, sizeHeight ?? 50),
         ),
-        backgroundColor: MaterialStateProperty.all(!(isDisable ?? false) ? colorButton ?? Colors.lightGreenAccent : Colors.grey),
+        backgroundColor: MaterialStateProperty.all(!(isDisable ?? false)
+            ? colorButton ?? Colors.lightGreenAccent
+            : Colors.grey),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadiusSize ?? 27),
           ),
         ),
         side: MaterialStateProperty.all(
-          BorderSide(color:!(isDisable ?? false) ? borderSideColor ?? Colors.lightGreenAccent : Colors.grey),
+          BorderSide(
+              color: !(isDisable ?? false)
+                  ? borderSideColor ?? Colors.lightGreenAccent
+                  : Colors.grey),
         ),
         elevation: MaterialStateProperty.all(elevation ?? 2),
       ),
@@ -53,7 +58,9 @@ class PrimaryButton extends StatelessWidget {
         child: Text(
           text ?? "",
           style: TextStyle(
-              color: !(isDisable ?? false) ? textColor ?? Colors.black : Colors.grey,
+              color: !(isDisable ?? false)
+                  ? textColor ?? Colors.black
+                  : Colors.grey,
               fontSize: fontSize ?? 14,
               fontFamily: 'D-DIN Exp',
               fontWeight: FontWeight.w700),

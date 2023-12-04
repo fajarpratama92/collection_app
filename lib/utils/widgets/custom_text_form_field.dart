@@ -14,16 +14,16 @@ class CustomTextFormField extends StatefulWidget {
 
   const CustomTextFormField(
       {super.key,
-        required this.labelText,
-        required this.hintText,
-        this.isObscure,
-        this.isPassword,
-        this.isRequired,
-        this.controller,
-        this.validator,
-        this.onChanged,
-        this.isDisableError,
-        this.autoValidateMode});
+      required this.labelText,
+      required this.hintText,
+      this.isObscure,
+      this.isPassword,
+      this.isRequired,
+      this.controller,
+      this.validator,
+      this.onChanged,
+      this.isDisableError,
+      this.autoValidateMode});
 
   @override
   CustomTextFormFieldState createState() {
@@ -75,9 +75,10 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
               focusedErrorBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black.withOpacity(0.8)),
               ),
-
               errorStyle: TextStyle(
-                  color: widget.isDisableError ?? false ? Colors.black26 : Colors.redAccent,
+                  color: widget.isDisableError ?? false
+                      ? Colors.black26
+                      : Colors.redAccent,
                   fontSize: 14,
                   fontFamily: 'D-DIN Exp',
                   fontWeight: FontWeight.w400,
@@ -97,18 +98,18 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
               suffixIcon: widget.isPassword ?? false
                   ? IconButton(
-                icon: Icon(
-                  passwordVisibility
-                      ? Icons.visibility_off
-                      : Icons.visibility,
-                  color: Colors.black,
-                ),
-                onPressed: () {
-                  setState(() {
-                    passwordVisibility = !passwordVisibility;
-                  });
-                },
-              )
+                      icon: Icon(
+                        passwordVisibility
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          passwordVisibility = !passwordVisibility;
+                        });
+                      },
+                    )
                   : null),
         )
       ],

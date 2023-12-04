@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../utils/home_bindings.dart';
 import '../../utils/my_pref.dart';
 
-
 class LoginController extends GetxController {
   RxBool isCheck = false.obs;
   RxBool isLoading = false.obs;
@@ -15,33 +14,29 @@ class LoginController extends GetxController {
   var accessToken = Get.find<MyPref>().accessToken;
 
   void login({required String email, required String password}) async {
-
-      try {
-        if (email == "" && password == "") {
-
-          // Get.offAll(() => MainPage(), binding: HomeBindings());
-          update();
-          // accessToken.val = response.data['token'];
-        } else {
-          errorMessage.value = "username / password not found";
-          isError.value = true;
-          update();
-        }
-        if (isCheck.isTrue) {
-          emailPref.val = email;
-        }
+    try {
+      if (email == "" && password == "") {
+        // Get.offAll(() => MainPage(), binding: HomeBindings());
         update();
-      } on Exception catch (e) {
-        isLoading.value = false;
+        // accessToken.val = response.data['token'];
+      } else {
+        errorMessage.value = "username / password not found";
+        isError.value = true;
         update();
-        log('error login $e');
       }
-
+      if (isCheck.isTrue) {
+        emailPref.val = email;
+      }
+      update();
+    } on Exception catch (e) {
+      isLoading.value = false;
+      update();
+      log('error login $e');
+    }
   }
 
   void changeIsCheck() {
     isCheck.value = !isCheck.value;
     update();
   }
-
 }
