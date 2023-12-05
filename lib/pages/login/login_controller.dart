@@ -20,7 +20,7 @@ class LoginController extends GetxController {
         update();
         // accessToken.val = response.data['token'];
       } else {
-        errorMessage.value = "username / password not found";
+        errorMessage.value = "username or password not found";
         isError.value = true;
         update();
       }
